@@ -15,7 +15,6 @@ class Part {
   final String parts;
   final String check;
 
-
   Part({@required this.parts, @required this.check});
 }
 
@@ -146,31 +145,27 @@ class SubmitForm1 extends StatelessWidget {
           children: [
             Card(
               color: Colors.deepOrange,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: IconButton(
-                      icon: Icon(Icons.picture_as_pdf),
-                      onPressed: () async {
-                        final pdfFile = await writeOnPdf();
-                        await saveDocument(name: 'CheckSheet.pdf', pdf: pdf);
-                        await openFile(pdfFile);
+              child: ListTile(
+                leading: IconButton(
+                  icon: Icon(Icons.picture_as_pdf),
+                  onPressed: () async {
+                    final pdfFile = await writeOnPdf();
+                    await saveDocument(name: 'CheckSheet.pdf', pdf: pdf);
+                    await openFile(pdfFile);
 
-                      },
-                    ),
-                    trailing: Text(currentDate),
-                    title: Text(
-                      taskName,
-                      style:
-                      TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                    ),
-                    subtitle: Text(
-                      'Subsystem $text | Shift $dropdownValue',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    isThreeLine: true,
-                  ),
-                ],
+                  },
+                ),
+                trailing: Text(currentDate),
+                title: Text(
+                  taskName,
+                  style:
+                  TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                subtitle: Text(
+                  'Subsystem $text | Shift $dropdownValue',
+                  style: TextStyle(color: Colors.white),
+                ),
+                isThreeLine: true,
               ),
             ),
           ],
