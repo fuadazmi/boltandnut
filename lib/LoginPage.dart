@@ -1,3 +1,5 @@
+import 'package:boltandnut/PasswordReset.dart';
+
 import 'PPMLine.dart';
 import 'package:boltandnut/RegisterPage.dart';
 import 'package:flutter/cupertino.dart';
@@ -109,7 +111,11 @@ class LoginPage extends StatelessWidget {
                               'Forgot Password?',
                               style: TextStyle(color: Colors.grey),
                             ),
-                            onPressed: () {}),
+                            onPressed: () {Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PasswordReset()),
+                            );}),
                         SizedBox(width: 10),
                         Text(
                           '|',
@@ -169,3 +175,4 @@ class LoginPage extends StatelessWidget {
     );
   }
 }
+
